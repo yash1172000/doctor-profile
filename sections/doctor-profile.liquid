@@ -1,0 +1,74 @@
+{{ 'doctor-profile.css' | asset_url | stylesheet_tag }}
+
+<div id="doctor-profile-main" class="doctor-profile-container page-width">
+<div class="doctor-profile">
+  <div class="doctor-profile__image">
+    {% unless section.settings.main_image == blank %}
+      <img src="{{ section.settings.main_image | img_url: 'large' }}" alt="{{ section.settings.doctor_name }}">
+    {% endunless %}
+    <div class="doctor-profile__badge">
+      {% unless section.settings.badge_image == blank %}
+         <img src="{{ section.settings.badge_image | img_url: 'small' }}" alt="Badge">
+      {% endunless %}
+    </div>
+  </div>
+  <div class="doctor-profile__content">
+    <h2 class="caption-with-letter-spacing--medium">{{ section.settings.doctor_name }}</h2>
+    <h3 class="image-with-text__heading inline-richtext h1">{{ section.settings.headline }}</h3>
+    <p>{{ section.settings.body_text }}</p>
+    <a href="{{ section.settings.button_url }}" class="doctor-profile__button">{{ section.settings.button_text }}</a>
+  </div>
+</div>
+</div>
+
+{% schema %}
+  {
+    "name": "Doctor Profile",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "main_image",
+        "label": "Main Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "badge_image",
+        "label": "Badge Image"
+      },
+      {
+        "type": "text",
+        "id": "doctor_name",
+        "label": "Doctor's Name",
+        "default": "Dr. Ernie Sanderson"
+      },
+      {
+        "type": "text",
+        "id": "headline",
+        "label": "Headline",
+        "default": "Veterinarian-Approved"
+      },
+      {
+        "type": "textarea",
+        "id": "body_text",
+        "label": "Body Text"
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button Text",
+        "default": "View Products"
+      },
+      {
+        "type": "url",
+        "id": "button_url",
+        "label": "Button URL"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Doctor Profile",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}

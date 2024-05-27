@@ -1,0 +1,94 @@
+.doctor-profile-container {
+  .doctor-profile__image{
+    flex: 1;
+  }
+    .doctor-profile {
+        position: relative;
+        padding: 20px;
+        display: flex;
+        gap: 20px;
+
+        .doctor-profile__image {
+            img {
+                width: 100%;
+                height: 100%;
+            }
+
+            .doctor-profile__badge {
+                img {
+                    width: 80px;
+                    height: 80px;
+                }
+            }
+        }
+
+        .doctor-profile__badge {
+            position: absolute;
+            top: 20px;
+        }
+
+
+        .doctor-profile__content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            flex: 1;
+
+            h3,
+            h2,
+            p {
+                margin: 0;
+            }
+
+            h2,
+            h3 {
+                font-weight: 700;
+            }
+
+            h2 {
+                color: #FFBF00;
+            }
+
+            .doctor-profile__button {
+                max-width: 35%;
+                padding: 10px 0;
+                background-color: #000;
+                text-align: center;
+                text-decoration: none;
+                color: #fff;
+                font-weight: 600;
+                border-radius: 8px;
+            }
+        }
+    }
+
+    @media screen and (max-width:768px) {
+        .doctor-profile {
+            flex-direction: column;
+            padding: 10px;
+            gap: 10px;
+
+            .doctor-profile__badge {
+                top: 8px;
+
+                img {
+                    width: 60px !important;
+                    height: 60px !important;
+                }
+            }
+
+            .doctor-profile__content {
+                text-align: center;
+                gap: 10px;
+
+                p {
+                    font-size: 15px;
+                }
+            }
+
+            .doctor-profile__button {
+                max-width: unset !important;
+            }
+        }
+    }
+}
